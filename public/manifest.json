@@ -1,0 +1,21 @@
+{
+  "short_name": "MWA",
+  "name": "Create React AppSimple",
+  "description": "Modern app built with React SSR, PWA, material-ui, code splitting and much more",
+  "icons": [
+    {
+      "src":"logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src":"logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  " start_url " : " ." ,
+  "display": "standalone",
+  "theme_color": "#810051",
+  "background_color": "#FFFFFF"
+}
