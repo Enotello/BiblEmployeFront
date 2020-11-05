@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from "react";
-import {Button, Card, Col, Form, Input, Row} from "antd";
+import './index.css'
+import Button from '../../components/UI/Button/Button'
+import Input from '../../components/UI/Input/index'
+import { Card, Form,} from "antd";
 import Axios from "axios";
 
 const { Meta } = Card;
-
 const xs = { span: 12, offset: 1 }
 const lg = { span: 6, offset: 2 }
 
 type PropsType = {
     match: any
 }
-
 const IssueBook = ({match}: PropsType) => {
+    console.log(match)
 
     const [form] = Form.useForm();
-
     const [dataBook, setDataBook]: any = useState([])
 
     useEffect(() => {
@@ -25,54 +26,45 @@ const IssueBook = ({match}: PropsType) => {
     }, [match.params.uid])
 
     return(
+            <div className='IssueBook'>
 
+                <div className='card'>
+                    <img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" alt={"example"}/>
+                    <p>
+                        Europe Street beat <br/> <span>www.instagram.com</span>
+                    </p>
+                </div>
 
-            <Row >
-                <Col xs={xs} lg={lg}>
-                    <Card
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                    >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
-                    </Card>
-                </Col>
-                <Col xs={xs} lg={lg}>
-                    <p>
-                        Название книги: {dataBook.name_book}
-                    </p>
-                    <p>
-                        Автор: {dataBook.author}
-                    </p>
-                    <p>
-                        Год: {dataBook.year}
-                    </p>
-                    <p>
-                        Жанр:  {dataBook.genre}
-                    </p>
-                </Col>
-                <Col xs={xs} lg={lg}>
-                    <Form
-                        form={form}
-                        initialValues={{ layout: 'vertical' }}
-                        layout={'vertical'}
-                    >
-                        <Form.Item label="ID Студента">
-                            <Input placeholder="ID Студента" />
-                        </Form.Item>
-                        <Form.Item label="Фамилия">
-                            <Input placeholder="Фамилия" />
-                        </Form.Item>
-                        <Form.Item label="Имя">
-                            <Input placeholder="Имя" />
-                        </Form.Item>
-                        <Form.Item >
-                            <Button type="primary" htmlType="submit">Выдать</Button>
-                        </Form.Item>
-                    </Form>
-                </Col>
-            </Row>
+                <div className='info'>
+                            <p>
+                                Название книги: {dataBook.name_book}
+                            </p>
+                            <p>
+                                Автор: {dataBook.author}
+                            </p>
+                            <p>
+                                Год: {dataBook.year}
+                            </p>
+                            <p>
+                                Жанр:  {dataBook.genre}
+                            </p>
+                </div>
 
+                <div className='form'>
+                            <Form
+                                form={form}
+                                initialValues={{ layout: 'vertical' }}
+                                layout={'vertical'}
+                            >
+                                <Input type={'name'} label={"ID Студента"} value={''}/>
+                                <Input type={'name'} label={"Фамилия"} value={''}></Input>
+                                <Input type={'name'} label={"Имя"} value={''}></Input>
+                                <Form.Item >
+                                    <Button type={'primary'} disabled={false} onClick={()=>{}}>Выдать</Button>
+                                </Form.Item>
+                            </Form>
+                </div>
+            </div>
     )
 }
 

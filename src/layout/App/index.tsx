@@ -1,37 +1,28 @@
 import React from "react";
-import { Layout, Breadcrumb } from 'antd';
-import ListBook from "../../page/ListBook";
+import 'antd/dist/antd.css';
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import IssueBook from "../../page/IssueBook";
 import {store} from "../../store/store";
-const { Header, Content, Footer } = Layout;
+import IssueBook from "../../page/IssueBook";
+import SignIn from "../../page/Auth/SignIn";
+import ListBook from "../../page/ListBook";
+import Layout from '../Layout';
+import SignUp from "../../page/Auth/SignUp";
+
+
+
 
 const App = () => {
-
-
     return(
         <Provider store={store}>
             <BrowserRouter>
-                <Layout className="layout">
-                    <Header>
-                        <div className="logo" />
-                        <div>
-                        <span style={{color:"white", fontFamily: "Rubik", fontSize: 22}}>
-                            Библиотека МосПолитеха
-                        </span>
-                        </div>
-                    </Header>
-                    <Content style={{ padding: '50px' }}>
-                        <div className="site-layout-content">
-
-                            <Switch>
-                                <Route path="/issue/:uid" component={IssueBook} />
-                                <Route path="/" component={ListBook}/>
-                            </Switch>
-                        </div>
-                    </Content>
-                    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+                <Layout>
+                    <Switch>
+                        <Route path="/issue/:uid" component={IssueBook} />
+                        <Route path="/sign_up" component={SignUp}/>
+                        <Route path="/sign_in" component={SignIn}/>
+                        <Route path="/" component={ListBook}/>
+                    </Switch>
                 </Layout>
             </BrowserRouter>
         </Provider>)

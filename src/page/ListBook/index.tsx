@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
+import Table from './Table/index'
 import Axios from "axios";
-import {Table, Button, Input} from 'antd';
+import {Button, Input} from 'antd';
 import "./index.css"
 import {NavLink} from "react-router-dom";
 import {getBooks} from "../../api/books";
@@ -31,8 +32,6 @@ const columns = [
         title: 'Action',
         key: 'action',
         render: (text:string, record:any) => {
-
-
             return (
 
                 <Button type="primary" >
@@ -45,17 +44,10 @@ const columns = [
     },
 ];
 
-
-
-
-
 const ListBook = () => {
 
     const [dataBooks, setDataBooks]: any = useState([])
-
     const [filter, setFilter]:any = useState("")
-
-
 
     useEffect(() => {
         getBooks().then((response) => {
@@ -68,17 +60,15 @@ const ListBook = () => {
         setFilter(searchValue)
     }
 
-
     return(
-
-        <div>
+        <div className='ListBook'>
             <div className="input-search-wrapper">
                 <Search
                     placeholder="input search text"
                     onChange={(event) => onSearch(event.target.value)}
-                     />
+                />
             </div>
-            <Table columns={columns} dataSource={dataBooks.filter((item:any) => item.name_book.includes(filter))} />
+            <Table dataSource={dataBooks.filter((item:any) => item.name_book.includes(filter))} />
         </div>
     )
 }
