@@ -1,0 +1,34 @@
+.SignUp {
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.SignUp > div {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.SignUp form {
+    background: white;
+    padding: 15px;
+    width: 25rem;
+    margin: 0 auto;
+}
+
+.SignUp h1 {
+    text-align: center;
+    font-size: 1.85em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.SignUp Button {
+    width: 100%;
+    justify-content: center;
+}

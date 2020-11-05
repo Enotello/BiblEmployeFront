@@ -2,12 +2,9 @@ import React, {useEffect, useState} from "react";
 import './index.css'
 import Button from '../../components/UI/Button/Button'
 import Input from '../../components/UI/Input/index'
-import { Card, Form,} from "antd";
+import {Form,} from "antd";
 import Axios from "axios";
 
-const { Meta } = Card;
-const xs = { span: 12, offset: 1 }
-const lg = { span: 6, offset: 2 }
 
 type PropsType = {
     match: any
