@@ -39,10 +39,16 @@
 }
 
 .primary:hover {
-    background: #ccc;
+    background: #1e1e1e;
+    border: 1px solid rgba(0, 0, 0, .8);
+}
+
+.primary:disabled {
+    background: #cccccc;
     color: rgba(0, 0, 0, .8);
     font-weight: bolder;
     border: 1px solid rgba(0, 0, 0, .8);
+    pointer-events: none;
 }
 
 .extra:hover {

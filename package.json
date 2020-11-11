@@ -12,8 +12,10 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.6",
+    "@types/yup": "^0.29.9",
     "antd": "^4.7.0",
     "axios": "^0.20.0",
+    "formik": "^2.2.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
@@ -22,7 +24,8 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "start": "react-scripts start",

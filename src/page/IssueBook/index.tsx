@@ -53,11 +53,11 @@ const IssueBook = ({match}: PropsType) => {
                                 initialValues={{ layout: 'vertical' }}
                                 layout={'vertical'}
                             >
-                                <Input type={'name'} label={"ID Студента"} value={''}/>
-                                <Input type={'name'} label={"Фамилия"} value={''}></Input>
-                                <Input type={'name'} label={"Имя"} value={''}></Input>
+                                <Input name={'id'} type={'id'} label={"ID Студента"} value={''}/>
+                                <Input name={'secondName'} type={'secondName'} label={"Фамилия"} value={''}></Input>
+                                <Input name={'name'} type={'name'} label={"Имя"} value={''}></Input>
                                 <Form.Item >
-                                    <Button type={'primary'} disabled={false} onClick={()=>{}}>Выдать</Button>
+                                    <Button type={'submit'} styleType={'primary'} disabled={false} onClick={()=>{}}>Выдать</Button>
                                 </Form.Item>
                             </Form>
                 </div>

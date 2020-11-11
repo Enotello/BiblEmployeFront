@@ -2,10 +2,14 @@ import React from 'react'
 import './index.css'
 
 type PropsType = {
+    name: string
     type: string
     label: string
     value: string
-    // onChange:
+    onChange?: any
+    onBlur?: any
+    touched?: boolean
+    errors?: string
 }
 
 const Input = (props: PropsType) => {
@@ -17,17 +21,16 @@ const Input = (props: PropsType) => {
         <div className={cls.join()}>
             <label htmlFor={htmlFor}>{props.label}</label>
             <input
+                name={props.name}
                 type={inputType}
                 id={htmlFor}
                 value={props.value}
-                // onChange={props.onChange}
+                onChange={props.onChange}
+                onBlur={props.onBlur}
             />
-
-            {/*{*/}
-            {/*    isInvalid(match)*/}
-            {/*        ? <span>{match.errorMessage || 'Введите верное значение'}</span>*/}
-            {/*        : null*/}
-            {/*}*/}
+            {
+                props.touched && props.errors && <p className={'error'}>{props.errors}</p>
+            }
         </div>
     )
 }

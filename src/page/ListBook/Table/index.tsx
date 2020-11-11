@@ -19,7 +19,7 @@ function renderTbody(params: dataSource, index: number): ReactNode {
             <th>{params.year}</th>
             <th>{params.genre}</th>
             <th>
-                <Button type={'extra shadow'} disabled={false} onClick={()=>{}}>
+                <Button type={'submit'} styleType={'extra shadow'} disabled={false} onClick={()=>{}}>
                     <NavLink to={`/issue/${params.uid}`} >
                         Выдать
                     </NavLink>
