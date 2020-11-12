@@ -33,7 +33,7 @@ const Layout = (props: PropsTypes) => {
             <main> {props.children} </main>
 
             <footer>
-                <Button type={'button'} styleType={'extra'} disabled={false} onClick={()=>{}}>
+                <Button type={'button'} styleType={'extra'} disabled={false} onClick={() => {}}>
                     <NavLink to={'/sign_up'} exact={true}>
                         Регистрация
                     </NavLink>

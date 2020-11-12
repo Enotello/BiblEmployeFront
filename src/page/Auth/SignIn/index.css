@@ -32,3 +32,9 @@
     width: 100%;
     justify-content: center;
 }
+
+.error {
+    color: #E63246;
+    font-size: 12px;
+    font-weight: lighter;
+}

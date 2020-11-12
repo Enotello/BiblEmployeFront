@@ -7,9 +7,10 @@ const titles: Array<string> = ['№', 'Название', 'Автор', 'Год'
 
 function renderThead(name: string, index: number): ReactNode {
     return (
-            <th key={name + index.toString()}> {name} </th>
+        <th key={name + index.toString()}> {name} </th>
     )
 }
+
 function renderTbody(params: dataSource, index: number): ReactNode {
     return (
         <tr key={params.number_book}>
@@ -19,8 +20,9 @@ function renderTbody(params: dataSource, index: number): ReactNode {
             <th>{params.year}</th>
             <th>{params.genre}</th>
             <th>
-                <Button type={'submit'} styleType={'extra shadow'} disabled={false} onClick={()=>{}}>
-                    <NavLink to={`/issue/${params.uid}`} >
+                <Button type={'submit'} styleType={'extra shadow'} disabled={false} onClick={() => {
+                }}>
+                    <NavLink to={`/issue/${params.uid}`}>
                         Выдать
                     </NavLink>
                 </Button>
@@ -47,13 +49,13 @@ const Table = (props: PropsTypes) => {
     return (
         <table className={'Table'}>
             <thead>
-                <tr>
-                    {titles.map((title, index) => renderThead(title, index))}
-                </tr>
+            <tr>
+                {titles.map((title, index) => renderThead(title, index))}
+            </tr>
             </thead>
 
             <tbody>
-                    { props.dataSource.map((params, index) => renderTbody(params, index))}
+            {props.dataSource.map((params, index) => renderTbody(params, index))}
             </tbody>
         </table>
     )

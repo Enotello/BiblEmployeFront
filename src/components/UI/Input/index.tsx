@@ -9,6 +9,7 @@ type PropsType = {
     onChange?: any
     onBlur?: any
     touched?: boolean
+    dirty?: boolean
     errors?: string
 }
 
@@ -29,7 +30,7 @@ const Input = (props: PropsType) => {
                 onBlur={props.onBlur}
             />
             {
-                props.touched && props.errors && <p className={'error'}>{props.errors}</p>
+                ((props.touched && props.errors) || props.dirty) && <p className={'error'}>{props.errors}</p>
             }
         </div>
     )

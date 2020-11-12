@@ -1,51 +1,65 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 import './index.css'
-import { Formik } from 'formik'
+import {Formik} from 'formik'
 import * as yup from 'yup'
 import Input from '../../../components/UI/Input'
-import Button from "../../../components/UI/Button/Button";
+import Button from '../../../components/UI/Button/Button'
+import {signIn, signUp} from '../../../store/actions/auth'
+import {connect, useDispatch} from 'react-redux'
+
+type PropsType = {
+    errorMessage: string
+    token: string
+    errorCode: string
+}
 
 
-const SignIn = () => {
+const SignIn = (props: PropsType) => {
     const validationSchema = yup.object().shape({
-        login: yup.string().typeError('Должно быть строкой').required('Обязательное поле'),
+        email: yup.string().typeError('Должно быть строкой').required('Обязательное поле').email('Введите корректный email'),
         password: yup.string().typeError('Должно быть строкой').required('Обязательное поле'),
     })
 
-    return(
+    const dispatch = useDispatch();
+    const stableDispatch = useCallback(dispatch, []);
+
+    return (
         <div className='Auth'>
             <Formik initialValues={{
-                login: '',
+                email: '',
                 password: '',
             }}
                     validateOnBlur
-                    onSubmit={(values) => console.log(values)}
                     validationSchema={validationSchema}
+                    onSubmit={async (values) => {
+                        const signInData = {
+                            email: values.email,
+                            password: values.password,
+                        }
+                        stableDispatch(signIn(signInData))
+                    }}
             >
                 {
                     ({values, errors, touched, handleChange, handleBlur, isValid, handleSubmit, dirty}) => (
                         <div>
                             <h1>Авторизация</h1>
                             <form>
-                                <Input type={'login'} name={'login'} label={'Логин'} value={values.login} onChange={handleChange} onBlur={handleBlur}
-                                       touched={touched.login} errors={errors.login}
+                                <Input type={'email'} name={'email'} label={'Email'} value={values.email}
+                                       onChange={handleChange} onBlur={handleBlur}
+                                       touched={touched.email} errors={errors.email}
                                 />
-
-                                <Input type={'password'} name={'password'} label={'Пароль'} value={values.password} onChange={handleChange} onBlur={handleBlur}
+                                <Input type={'password'} name={'password'} label={'Пароль'} value={values.password}
+                                       onChange={handleChange} onBlur={handleBlur}
                                        touched={touched.password} errors={errors.password}
                                 />
-
-
-
                                 <Button styleType={'primary'}
                                         type={'submit'}
-                                        // disabled={!isValid && !dirty}
                                         onClick={handleSubmit}
                                 >
                                     Войти
                                 </Button>
+                                { (props.errorMessage !== null) ? (<p className='error'>{props.errorMessage}</p>) : null }
                             </form>
-
                         </div>
                     )
                 }
@@ -54,4 +68,22 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+function mapStateToProps(state: any) {
+    return {
+        errorMessage: state.signUp.errorMessage,
+        showSuccessMessage: state.signUp.showSuccessMessage
+    }
+}
+
+interface DataType {
+    email: string
+    password: string
+}
+
+function mapDispatchToProps(dispatch: any) {
+    return {
+        signIn: (values: DataType) => dispatch(signIn(values)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

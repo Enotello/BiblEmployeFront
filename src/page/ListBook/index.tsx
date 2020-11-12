@@ -5,7 +5,8 @@ import {Button, Input} from 'antd';
 import "./index.css"
 import {NavLink} from "react-router-dom";
 import {getBooks} from "../../api/books";
-const { Search } = Input;
+
+const {Search} = Input;
 
 const columns = [
     {
@@ -31,10 +32,10 @@ const columns = [
     {
         title: 'Action',
         key: 'action',
-        render: (text:string, record:any) => {
+        render: (text: string, record: any) => {
             return (
 
-                <Button type="primary" >
+                <Button type="primary">
                     <NavLink to={`/issue/${record.uid}`}>
                         Выдать
                     </NavLink>
@@ -47,20 +48,20 @@ const columns = [
 const ListBook = () => {
 
     const [dataBooks, setDataBooks]: any = useState([])
-    const [filter, setFilter]:any = useState("")
+    const [filter, setFilter]: any = useState("")
 
     useEffect(() => {
         getBooks().then((response) => {
-                setDataBooks(response.data)
-            })
+            setDataBooks(response.data)
+        })
 
     }, [])
 
-    const onSearch = (searchValue: string) =>{
+    const onSearch = (searchValue: string) => {
         setFilter(searchValue)
     }
 
-    return(
+    return (
         <div className='ListBook'>
             <div className="input-search-wrapper">
                 <Search
@@ -68,7 +69,7 @@ const ListBook = () => {
                     onChange={(event) => onSearch(event.target.value)}
                 />
             </div>
-            <Table dataSource={dataBooks.filter((item:any) => item.name_book.includes(filter))} />
+            <Table dataSource={dataBooks.filter((item: any) => item.name_book.includes(filter))}/>
         </div>
     )
 }
