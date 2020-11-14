@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from "react";
-import Table from './Table/index'
 import Axios from "axios";
-import {Button, Input} from 'antd';
+import {Table, Button, Input} from 'antd';
 import "./index.css"
 import {NavLink} from "react-router-dom";
 import {getBooks} from "../../api/books";
-
-const {Search} = Input;
+const { Search } = Input;
 
 const columns = [
     {
@@ -23,19 +21,21 @@ const columns = [
     },
     {
         title: 'Год',
-        dataIndex: 'year',
+        dataIndex: 'author',
     },
     {
         title: 'Жанр',
-        dataIndex: 'genre',
+        dataIndex: 'year',
     },
     {
         title: 'Action',
         key: 'action',
-        render: (text: string, record: any) => {
+        render: (text:string, record:any) => {
+
+
             return (
 
-                <Button type="primary">
+                <Button type="primary" >
                     <NavLink to={`/issue/${record.uid}`}>
                         Выдать
                     </NavLink>
@@ -45,31 +45,40 @@ const columns = [
     },
 ];
 
+
+
+
+
 const ListBook = () => {
 
     const [dataBooks, setDataBooks]: any = useState([])
-    const [filter, setFilter]: any = useState("")
+
+    const [filter, setFilter]:any = useState("")
+
+
 
     useEffect(() => {
         getBooks().then((response) => {
-            setDataBooks(response.data)
-        })
+                setDataBooks(response.data)
+            })
 
     }, [])
 
-    const onSearch = (searchValue: string) => {
+    const onSearch = (searchValue: string) =>{
         setFilter(searchValue)
     }
 
-    return (
-        <div className='ListBook'>
+
+    return(
+
+        <div>
             <div className="input-search-wrapper">
                 <Search
                     placeholder="input search text"
                     onChange={(event) => onSearch(event.target.value)}
-                />
+                     />
             </div>
-            <Table dataSource={dataBooks.filter((item: any) => item.name_book.includes(filter))}/>
+            <Table columns={columns} dataSource={dataBooks.filter((item:any) => item.name_book.includes(filter))} />
         </div>
     )
 }

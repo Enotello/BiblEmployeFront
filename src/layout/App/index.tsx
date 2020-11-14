@@ -1,28 +1,58 @@
 import React from "react";
-import 'antd/dist/antd.css';
-import { Switch, Route, BrowserRouter } from "react-router-dom";
-import { Provider } from 'react-redux';
-import {store} from "../../store/store";
-import IssueBook from "../../page/IssueBook";
-import SignIn from "../../page/Auth/SignIn";
+import './index.css'
+import {Layout, Breadcrumb, Button} from 'antd';
 import ListBook from "../../page/ListBook";
-import Layout from '../Layout';
-import SignUp from "../../page/Auth/SignUp";
-
-
+import {Switch, Route, BrowserRouter, NavLink} from "react-router-dom";
+import { Provider } from 'react-redux';
+import IssueBook from "../../page/IssueBook";
+import Register from "../../page/Auth/SignUp";
+import Login from "../../page/Auth/SignIn";
+import {store} from "../../store/store";
+const { Header, Content, Footer } = Layout;
 
 
 const App = () => {
     return(
         <Provider store={store}>
             <BrowserRouter>
-                <Layout>
-                    <Switch>
-                        <Route path="/issue/:uid" component={IssueBook} />
-                        <Route path="/sign_up" component={SignUp}/>
-                        <Route path="/sign_in" component={SignIn}/>
-                        <Route path="/" component={ListBook}/>
-                    </Switch>
+                <Layout className="layout">
+                    <Header className="header">
+                            <div className='logo'>
+                                Электронная библиотека
+                            </div>
+                            <nav className='links'>
+                                <ul>
+                                    <li><NavLink to={'#'} style={{color: 'white'}} className='link'>Ссылка 1</NavLink></li>
+                                    <li><NavLink to={'#'} style={{color: 'white'}} className='link'>Ссылка 2</NavLink></li>
+                                    <li><NavLink to={'#'} style={{color: 'white'}} className='link'>Ссылка 3</NavLink></li>
+                                </ul>
+                            </nav>
+                            <div className='icon'>
+                                <NavLink to={'/sign_in'}>
+                                    <i className="fas fa-door-open"/>
+                                    <p>Выход</p>
+                                </NavLink>
+                            </div>
+                    </Header>
+                    <Content style={{ padding: '50px' }}>
+                        <div className="site-layout-content">
+                            <Switch>
+                                <Route path="/issue/:uid" component={IssueBook} />
+                                <Route path="/sign_up" component={Register} />
+                                <Route path="/sign_in" component={Login} />
+                                <Route path="/" component={ListBook}/>
+                            </Switch>
+                        </div>
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}>
+                        <footer>
+                            <Button type="primary" >
+                                <NavLink to={'/sign_up'} exact={true}>
+                                    Регистрация
+                                </NavLink>
+                            </Button>
+                        </footer>
+                    </Footer>
                 </Layout>
             </BrowserRouter>
         </Provider>)
@@ -30,7 +60,3 @@ const App = () => {
 }
 
 export default App
-// not login
-// <Switch>
-// <Route path="/sign_in" component={SignIn}/>
-// </Switch>

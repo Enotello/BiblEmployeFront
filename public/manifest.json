@@ -1,21 +1,25 @@
 {
-  "short_name": "MWA",
-  "name": "Create React AppSimple",
-  "description": "Modern app built with React SSR, PWA, material-ui, code splitting and much more",
+  "short_name": "Библиотека",
+  "name": "ЭБС МосПолитех",
   "icons": [
     {
-      "src":"logo192.png",
-      "sizes": "192x192",
+      "src": "favicon.jpg",
+      "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     },
     {
-      "src":"logo512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "favicon.jpg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon.jpg",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
-  " start_url " : " ." ,
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#810051",
-  "background_color": "#FFFFFF"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

@@ -4,7 +4,8 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.svg">
+<!--    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">-->
     <!-- Add manifest -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <!-- Tell the browser it's a PWA -->
@@ -22,8 +23,6 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -43,32 +42,6 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-    <script>
-      // if ('serviceWorker' in navigator) {
-      //   window.addEventListener('load', function() {
-      //     navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-      //       // Registration was successful
-      //       console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      //     }, function(err) {
-      //       // registration failed :(
-      //       console.log('ServiceWorker registration failed: ', err);
-      //     }).catch(function(err) {
-      //       console.log(err)
-      //     });
-      //   });
-      // } else {
-      //   console.log('service worker is not supported');
-      // }
-      navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log('ServiceWorker registration failed: ', err);
-      }).catch(function(err) {
-        console.log(err)
-      });
-    </script>
 
     <!--
       This HTML file is a template.
@@ -80,5 +53,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      // Если браузер поддерживает service-worker - регистрируем
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+                  .then(registration => {
+                    console.log('Service Worker is registered! ');
+                  })
+                  .catch(err => {
+                    console.log('Registration failed  ', err);
+                  });
+        });
+      }
+    </script>`
   </body>
 </html>

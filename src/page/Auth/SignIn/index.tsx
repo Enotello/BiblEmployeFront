@@ -2,7 +2,7 @@ import React, {useCallback} from 'react'
 import './index.css'
 import {Formik} from 'formik'
 import * as yup from 'yup'
-import Input from '../../../components/UI/Input'
+import { Input} from 'antd';
 import Button from '../../../components/UI/Button/Button'
 import {signIn, signUp} from '../../../store/actions/auth'
 import {connect, useDispatch} from 'react-redux'
@@ -44,13 +44,11 @@ const SignIn = (props: PropsType) => {
                         <div>
                             <h1>Авторизация</h1>
                             <form>
-                                <Input type={'email'} name={'email'} label={'Email'} value={values.email}
+                                <Input type={'email'} name={'email'} placeholder="Email" value={values.email}
                                        onChange={handleChange} onBlur={handleBlur}
-                                       touched={touched.email} errors={errors.email}
                                 />
-                                <Input type={'password'} name={'password'} label={'Пароль'} value={values.password}
+                                <Input type={'password'} name={'password'} placeholder="Пароль" value={values.password}
                                        onChange={handleChange} onBlur={handleBlur}
-                                       touched={touched.password} errors={errors.password}
                                 />
                                 <Button styleType={'primary'}
                                         type={'submit'}
