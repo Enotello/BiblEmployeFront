@@ -20,7 +20,7 @@ function precache() {
             './',
             '/assets/MWA.png',
             '/assets/global.css',
-            '/assets/logos/favicon.ico',
+            '/assets/logos/favicon.jpg',
             '/assets/logos/yellow 192.png',
             '/assets/logos/yellow 512.png',
             '/robots.txt'

@@ -21,11 +21,11 @@ const columns = [
     },
     {
         title: 'Год',
-        dataIndex: 'year',
+        dataIndex: 'author',
     },
     {
         title: 'Жанр',
-        dataIndex: 'genre',
+        dataIndex: 'year',
     },
     {
         title: 'Action',

@@ -49,7 +49,7 @@ export const bookReducer = function(state  = defaultState, action: ActionType) {
             return {
                 ...state,
                 request_status: {...state.request_status, points: "success"},
-                points: state.points.map((item: any) => {
+                points: state.points.map((item: any, index) => {
                     if (item.uuid === action.payload.uuidPoint){
                         return action.payload.data
                     }

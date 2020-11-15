@@ -32,9 +32,9 @@ const IssueBook = ({match}: PropsType) => {
                     <Card
                         hoverable
                         style={{ width: 240 }}
-                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        cover={<img alt="example" src="https://www.mann-ivanov-ferber.ru/assets/images/covers/61/25761/1.00x-thumb.png" />}
                     >
-                        <Meta title="Europe Street beat" description="www.instagram.com" />
+                        <Meta title={dataBook.name_book} description={dataBook.author} />
                     </Card>
                 </Col>
                 <Col xs={xs} lg={lg}>
