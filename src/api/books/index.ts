@@ -1,7 +1,7 @@
 import Api from "../index"
 
 export const getBooks = async () => {
-    return await Api.get(`books`)
+    return await Api.get(`books/all`)
 };
 
 export const getBook = async (id: any) => {

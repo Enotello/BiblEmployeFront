@@ -15,12 +15,12 @@
 /*-----------------------*/
 .header{
     display: flex;
-    align-items: center;
     width: 100%;
     min-height: 50px;
     height: 3.5rem;
     background-color: #1e1e1e;
     padding: 0 5.5rem;
+
 }
 
 
@@ -83,14 +83,5 @@ li a {
     margin: 0 5px;
     font-size: 0.6em;
     text-transform: uppercase;
-}
-
-/* -----------------------  */
-
-footer {
-    width: 40%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
 }
 

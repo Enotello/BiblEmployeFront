@@ -25,8 +25,6 @@ const IssueBook = ({match}: PropsType) => {
     }, [match.params.uid])
 
     return(
-
-
             <Row >
                 <Col xs={xs} lg={lg}>
                     <Card

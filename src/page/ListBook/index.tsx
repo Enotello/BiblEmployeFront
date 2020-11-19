@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import Axios from "axios";
 import {Table, Button, Input} from 'antd';
 import "./index.css"
 import {NavLink} from "react-router-dom";
@@ -9,11 +8,11 @@ const { Search } = Input;
 const columns = [
     {
         title: 'Номер книги',
-        dataIndex: 'number_book',
+        dataIndex: 'book_id',
     },
     {
         title: 'Название',
-        dataIndex: 'name_book',
+        dataIndex: 'title',
     },
     {
         title: 'Автор',
@@ -21,11 +20,11 @@ const columns = [
     },
     {
         title: 'Год',
-        dataIndex: 'author',
+        dataIndex: 'physical_carier',
     },
     {
         title: 'Жанр',
-        dataIndex: 'year',
+        dataIndex: 'part_name',
     },
     {
         title: 'Action',
@@ -36,7 +35,7 @@ const columns = [
             return (
 
                 <Button type="primary" >
-                    <NavLink to={`/issue/${record.uid}`}>
+                    <NavLink to={`/issue/${record.book_id}`}>
                         Выдать
                     </NavLink>
                 </Button>
@@ -58,8 +57,11 @@ const ListBook = () => {
 
 
     useEffect(() => {
+        console.log("ge")
         getBooks().then((response) => {
+            console.log("ge")
                 setDataBooks(response.data)
+                console.log(response.data)
             })
 
     }, [])
@@ -78,7 +80,7 @@ const ListBook = () => {
                     onChange={(event) => onSearch(event.target.value)}
                      />
             </div>
-            <Table columns={columns} dataSource={dataBooks.filter((item:any) => item.name_book.includes(filter))} />
+            <Table columns={columns} dataSource={dataBooks.filter((item:any) => item.title.includes(filter))} />
         </div>
     )
 }

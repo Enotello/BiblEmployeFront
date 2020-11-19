@@ -23,6 +23,4 @@ class Api {
         return await instance.delete(url);
     }
 }
-
-
 export default Api;
