@@ -7,11 +7,12 @@ import { Provider } from 'react-redux';
 import IssueBook from "../../page/IssueBook";
 import Register from "../../page/Auth/SignUp";
 import Login from "../../page/Auth/SignIn";
+import AddBook from "../../page/AddBook"
 import {store} from "../../store/store";
 const { Header, Content, Footer } = Layout;
 
 
-const App = () => {
+const App: React.FC = () => {
     return(
         <Provider store={store}>
             <BrowserRouter>
@@ -40,6 +41,7 @@ const App = () => {
                                 <Route path="/issue/:uid" component={IssueBook} />
                                 <Route path="/sign_up" component={Register} />
                                 <Route path="/sign_in" component={Login} />
+                                <Route path={"/add_book"} component={AddBook}/>
                                 <Route path="/" component={ListBook}/>
                             </Switch>
                         </div>
@@ -49,6 +51,11 @@ const App = () => {
                             <Button type="primary" >
                                 <NavLink to={'/sign_up'} exact={true}>
                                     Регистрация
+                                </NavLink>
+                            </Button>
+                            <Button type="primary" >
+                                <NavLink to={'/add_book'} exact={true}>
+                                    Добавить книгу
                                 </NavLink>
                             </Button>
                         </footer>

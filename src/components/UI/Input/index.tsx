@@ -5,7 +5,8 @@ type PropsType = {
     name: string
     type: string
     label: string
-    value: string
+    value: any
+    placeHolder?: string
     onChange?: any
     onBlur?: any
     touched?: boolean
@@ -26,6 +27,7 @@ const Input = (props: PropsType) => {
                 type={inputType}
                 id={htmlFor}
                 value={props.value}
+                placeholder={props.placeHolder}
                 onChange={props.onChange}
                 onBlur={props.onBlur}
             />
