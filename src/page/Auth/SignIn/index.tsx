@@ -4,7 +4,7 @@ import {Formik} from 'formik'
 import * as yup from 'yup'
 import { Input} from 'antd';
 import Button from '../../../components/UI/Button/Button'
-import {signIn, signUp} from '../../../store/actions/auth'
+import {signIn} from '../../../store/actions/auth'
 import {connect, useDispatch} from 'react-redux'
 
 type PropsType = {

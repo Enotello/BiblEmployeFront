@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const _localStorage: any = localStorage.getItem('reduxState')
 
-const persistedState = localStorage.getItem('reduxState') ? JSON.parse(_localStorage) : {}
+// const persistedState = localStorage.getItem('reduxState') ? JSON.parse(_localStorage) : {}
 
 
 
