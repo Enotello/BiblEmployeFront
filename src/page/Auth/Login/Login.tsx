@@ -1,8 +1,8 @@
 import React, {useCallback} from 'react'
-import './index.css'
+import './Login.css'
 import {Formik} from 'formik'
 import * as yup from 'yup'
-import { Input} from 'antd';
+import InputValidate from "../../../components/UI/Input/Input";
 import Button from '../../../components/UI/Button/Button'
 import {signIn} from '../../../store/actions/auth'
 import {connect, useDispatch} from 'react-redux'
@@ -14,7 +14,7 @@ type PropsType = {
 }
 
 
-const SignIn = (props: PropsType) => {
+const Login = (props: PropsType) => {
     const validationSchema = yup.object().shape({
         email: yup.string().typeError('Должно быть строкой').required('Обязательное поле').email('Введите корректный email'),
         password: yup.string().typeError('Должно быть строкой').required('Обязательное поле'),
@@ -44,11 +44,14 @@ const SignIn = (props: PropsType) => {
                         <div>
                             <h1>Авторизация</h1>
                             <form>
-                                <Input type={'email'} name={'email'} placeholder="Email" value={values.email}
-                                       onChange={handleChange} onBlur={handleBlur}
+                                <InputValidate type={'email'} name={'email'} label="Email" value={values.email}
+                                               onChange={handleChange} onBlur={handleBlur}
+                                               touched={touched.email} errors={errors.email} dirty={dirty}
                                 />
-                                <Input type={'password'} name={'password'} placeholder="Пароль" value={values.password}
-                                       onChange={handleChange} onBlur={handleBlur}
+                                <InputValidate type={'password'} name={'password'} label="Пароль"
+                                               value={values.password}
+                                               onChange={handleChange} onBlur={handleBlur}
+                                               touched={touched.password} errors={errors.password} dirty={dirty}
                                 />
                                 <Button styleType={'primary'}
                                         type={'submit'}
@@ -56,7 +59,7 @@ const SignIn = (props: PropsType) => {
                                 >
                                     Войти
                                 </Button>
-                                { (props.errorMessage !== null) ? (<p className='error'>{props.errorMessage}</p>) : null }
+                                {(props.errorMessage !== null) ? (<p className='error'>{props.errorMessage}</p>) : null}
                             </form>
                         </div>
                     )
@@ -68,8 +71,8 @@ const SignIn = (props: PropsType) => {
 
 function mapStateToProps(state: any) {
     return {
-        errorMessage: state.signUp.errorMessage,
-        showSuccessMessage: state.signUp.showSuccessMessage
+        errorMessage: state.auth.errorMessage,
+        showSuccessMessage: state.auth.showSuccessMessage
     }
 }
 
@@ -84,4 +87,4 @@ function mapDispatchToProps(dispatch: any) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

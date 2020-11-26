@@ -1,5 +1,6 @@
 import React from 'react'
-import './index.css'
+import {Input} from 'antd';
+import './Input.css'
 
 type PropsType = {
     name: string
@@ -12,9 +13,10 @@ type PropsType = {
     touched?: boolean
     dirty?: boolean
     errors?: string
+    placeholder?: string
 }
 
-const Input = (props: PropsType) => {
+const InputValidate = (props: PropsType) => {
     const inputType: string = props.type || 'text'
     const cls: Array<string> = ['Input']
     const htmlFor: string = `${inputType}-${Math.random()}`
@@ -22,7 +24,7 @@ const Input = (props: PropsType) => {
     return (
         <div className={cls.join()}>
             <label htmlFor={htmlFor}>{props.label}</label>
-            <input
+            <Input
                 name={props.name}
                 type={inputType}
                 id={htmlFor}
@@ -38,4 +40,4 @@ const Input = (props: PropsType) => {
     )
 }
 
-export default Input
+export default InputValidate

@@ -1,10 +1,10 @@
 import React, {useCallback} from 'react'
-import './index.css'
+import './Register.css'
 import {Formik} from 'formik'
 import * as yup from 'yup'
 import {connect, useDispatch} from 'react-redux'
 import {signUp} from '../../../store/actions/auth'
-import Input from '../../../components/UI/Input'
+import InputValidate from '../../../components/UI/Input/Input'
 import Button from '../../../components/UI/Button/Button'
 
 type PropsType = {
@@ -14,7 +14,7 @@ type PropsType = {
 }
 
 
-const SignUp = (props: PropsType) => {
+const Register = (props: PropsType) => {
     const validationSchema = yup.object().shape({
         email: yup.string().typeError('Должно быть строкой').required('Обязательное поле').email('Введите корректный email'),
         password: yup.string().typeError('Должно быть строкой').required('Обязательное поле').min(4, 'Минимальная длина пароля 4 символа'),
@@ -52,17 +52,17 @@ const SignUp = (props: PropsType) => {
                         <div>
                             <h1>Регистрация</h1>
                             <form>
-                                <Input type={'email'} name={'email'} label={'Email'} value={values.email}
+                                <InputValidate type={'email'} name={'email'} label={'Email'} value={values.email}
                                        onChange={handleChange} onBlur={handleBlur}
                                        touched={touched.email} errors={errors.email} dirty={dirty}
                                 />
 
-                                <Input type={'password'} name={'password'} label={'Придумайте пароль'}
+                                <InputValidate type={'password'} name={'password'} label={'Придумайте пароль'}
                                        value={values.password} onChange={handleChange} onBlur={handleBlur}
                                        touched={touched.password} errors={errors.password}
                                 />
 
-                                <Input type={'password'} name={'confirmPassword'} label={'Подтвердите пароль'}
+                                <InputValidate type={'password'} name={'confirmPassword'} label={'Подтвердите пароль'}
                                        value={values.confirmPassword} onChange={handleChange}
                                        onBlur={handleBlur}
                                        touched={touched.confirmPassword} errors={errors.confirmPassword}
@@ -86,8 +86,8 @@ const SignUp = (props: PropsType) => {
 
 function mapStateToProps(state: any) {
     return {
-        errorMessage: state.signUp.errorMessage,
-        showSuccessMessage: state.signUp.showSuccessMessage
+        errorMessage: state.auth.errorMessage,
+        showSuccessMessage: state.auth.showSuccessMessage
     }
 }
 
@@ -103,4 +103,4 @@ function mapDispatchToProps(dispatch: any) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

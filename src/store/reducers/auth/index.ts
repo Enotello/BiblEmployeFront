@@ -1,4 +1,4 @@
-import {SIGN_UP_SUCCESS, SIGN_IN_ERROR, SIGN_IN_SUCCESS, SIGN_UP_ERROR} from '../../const/auth'
+import {SIGN_UP_SUCCESS, SIGN_IN_ERROR, SIGN_IN_SUCCESS, SIGN_UP_ERROR, LOGOUT} from '../../const/auth'
 
 const defaultState = {
     errorMessage: null,
@@ -12,7 +12,7 @@ type ActionType = {
     payload: any
 }
 
-export default function signUpReducer(state = defaultState, action: ActionType) {
+export default function authReducer(state = defaultState, action: ActionType) {
     switch (action.type) {
         case SIGN_UP_SUCCESS:
             return {
@@ -41,6 +41,11 @@ export default function signUpReducer(state = defaultState, action: ActionType) 
                 showSuccessMessage: false,
                 errorMessage: action.payload.errorMessage,
                 errorCode: action.payload.errorCode,
+            }
+        case LOGOUT:
+            return {
+                ...state,
+                token: null
             }
         default:
             return state

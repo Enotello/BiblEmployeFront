@@ -1,6 +1,6 @@
 import React, {useCallback} from "react";
 import {Formik} from "formik";
-import Input from '../../components/UI/Input'
+import InputValidate from '../../components/UI/Input/Input'
 import {array, boolean, date, number, string} from "yup";
 import * as yup from "yup";
 import Button from "../../components/UI/Button/Button";
@@ -102,44 +102,44 @@ const AddBook: React.FC = () => {
                       isSubmitting,
                   }) => (
                     <form onSubmit={handleSubmit} className='add-book-form' method="POST">
-                        <Input type={'text'} name={'isbn'} label={'Номер isbn'} value={values.isbn} placeHolder={"Введите номер isbn"}
+                        <InputValidate type={'text'} name={'isbn'} label={'Номер isbn'} value={values.isbn} placeHolder={"Введите номер isbn"}
                                onChange={handleChange}
                         />
                         {errors.isbn && touched.isbn && errors.isbn}
-                        <Input type={'text'} name={'edition'} label={'Тираж'} value={values.edition} placeHolder={"Введите тираж"}
+                        <InputValidate type={'text'} name={'edition'} label={'Тираж'} value={values.edition} placeHolder={"Введите тираж"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'author'} label={'Автор'} value={values.author} placeHolder={"Введите имя автора"}
+                        <InputValidate type={'text'} name={'author'} label={'Автор'} value={values.author} placeHolder={"Введите имя автора"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'title'} label={'Заглавие'} value={values.title} placeHolder={"Введите заглавие"}
+                        <InputValidate type={'text'} name={'title'} label={'Заглавие'} value={values.title} placeHolder={"Введите заглавие"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'physicalMedium'} label={'Физический носитель'} value={values.physicalMedium} placeHolder={"Введите тип физического носителя"}
+                        <InputValidate type={'text'} name={'physicalMedium'} label={'Физический носитель'} value={values.physicalMedium} placeHolder={"Введите тип физического носителя"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'partNumber'} label={'Номер части'} value={values.partNumber} placeHolder={"Введите номер части"}
+                        <InputValidate type={'text'} name={'partNumber'} label={'Номер части'} value={values.partNumber} placeHolder={"Введите номер части"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'partTitle'} label={'Название части'} value={values.partTitle} placeHolder={"Введите название части"}
+                        <InputValidate type={'text'} name={'partTitle'} label={'Название части'} value={values.partTitle} placeHolder={"Введите название части"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'publisher'} label={'Издательство'} value={values.publisher} placeHolder={"Введите наименование издательства"}
+                        <InputValidate type={'text'} name={'publisher'} label={'Издательство'} value={values.publisher} placeHolder={"Введите наименование издательства"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'dateOfIssue'} label={'Дата издания'} value={values.dateOfIssue} placeHolder={"Введите дату издания книги"}
+                        <InputValidate type={'text'} name={'dateOfIssue'} label={'Дата издания'} value={values.dateOfIssue} placeHolder={"Введите дату издания книги"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'size'} label={'Объём'} value={values.size} placeHolder={"Введите объём (стр.)"}
+                        <InputValidate type={'text'} name={'size'} label={'Объём'} value={values.size} placeHolder={"Введите объём (стр.)"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'illustrations'} label={'Наличие иллюстраций'} value={values.illustrations} placeHolder={"Имеются ли иллюстрации?"}
+                        <InputValidate type={'text'} name={'illustrations'} label={'Наличие иллюстраций'} value={values.illustrations} placeHolder={"Имеются ли иллюстрации?"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'indexUDC'} label={'Индекс УДК'} value={values.indexUDC} placeHolder={"Введите индекс УДК"}
+                        <InputValidate type={'text'} name={'indexUDC'} label={'Индекс УДК'} value={values.indexUDC} placeHolder={"Введите индекс УДК"}
                                onChange={handleChange}
                         />
-                        <Input type={'text'} name={'mainWords'} label={'Ключевые слова'} value={values.mainWords} placeHolder={"Введите через запятую ключевые слова"}
+                        <InputValidate type={'text'} name={'mainWords'} label={'Ключевые слова'} value={values.mainWords} placeHolder={"Введите через запятую ключевые слова"}
                                onChange={handleChange}
                         />
                         <Button styleType={'add-book-form-btn'}

@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react'
 import './Button.css'
 
+
 type PropsTypes = {
     type: 'button' | 'submit' | 'reset'
     styleType: string

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {
+    LOGOUT,
     SIGN_IN_ERROR,
     SIGN_IN_SUCCESS,
     SIGN_UP_ERROR,
@@ -68,6 +69,7 @@ export const signIn = (signInData: DataSingInType): ThunkAction<void, unknown, u
 }
 
 export function singInSuccess(token: string) {
+    localStorage.setItem('token', token)
     return {
         type: SIGN_IN_SUCCESS,
         payload: {
@@ -91,6 +93,13 @@ export function singInError(error: any) {
             errorMessage,
             errorCode
         }
+    }
+}
+
+export const logout = () => {
+    localStorage.removeItem('token')
+    return {
+        type: LOGOUT
     }
 }
 

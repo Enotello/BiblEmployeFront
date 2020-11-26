@@ -1,0 +1,9 @@
+.Input {
+    margin-bottom: 15px;
+}
+
+.error {
+    color: #E63246;
+    font-size: 12px;
+    font-weight: lighter;
+}
