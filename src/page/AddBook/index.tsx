@@ -1,7 +1,6 @@
 import React, {useCallback} from "react";
 import {Formik} from "formik";
 import InputValidate from '../../components/UI/Input/Input'
-import {array, boolean, date, number, string} from "yup";
 import * as yup from "yup";
 import Button from "../../components/UI/Button/Button";
 import './index.css'

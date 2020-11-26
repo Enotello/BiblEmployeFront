@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import reducer from "../reducers";
+import {rootReducer} from "../reducers";
 
 
 let enhancer= applyMiddleware(thunk)
@@ -20,6 +20,6 @@ const _localStorage: any = localStorage.getItem('reduxState')
 
 
 export const store = createStore(
-    reducer,
+    rootReducer,
     enhancer
 )

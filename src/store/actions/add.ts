@@ -1,6 +1,5 @@
 import { ThunkAction } from 'redux-thunk'
 import { Action }  from 'redux'
-import {boolean, number, string} from "yup";
 import axios from "axios";
 import { ADD_BOOK_SUCCESS, ADD_BOOK_ERROR } from '../const/add'
 

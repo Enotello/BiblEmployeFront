@@ -1,9 +1,12 @@
 import { combineReducers } from "redux";
-// import { bookReducer } from "./book";
 import authReducer from "./auth";
+import bookReducer from "./book";
 
 
-export default combineReducers({
-    // book: bookReducer,
-    auth: authReducer
+export const rootReducer = combineReducers({
+    auth: authReducer,
+    book: bookReducer
 });
+
+
+export type RootState = ReturnType<typeof rootReducer>

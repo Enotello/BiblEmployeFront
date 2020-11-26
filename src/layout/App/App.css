@@ -33,46 +33,25 @@
 }
 /* -----------------------  */
 .links {
-    display: inline-block;
-    height: 100%;
-    color: #cccccc;
     text-transform: uppercase;
     margin: auto;
-    align-items: center;
-    font-weight: normal;
 }
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 li {
     float: left;
 }
 li a {
-    display: block;
-    color: #cccccc;
-    text-align: center;
-    padding: 5px 15px;
-    text-decoration: none;
-    margin: auto 10px;
+    margin: 0 30px;
 }
 
 /* -----------------------  */
 
-.exit {
-    display: inline-block;
-    margin: auto 5px;
-    text-align: center;
-
-}
-.exit a {
-    display: block;
+.exit Button span{
     color: white;
-    margin: 0;
-    padding: 5px 10px;
-    text-transform: uppercase;
 }
 
