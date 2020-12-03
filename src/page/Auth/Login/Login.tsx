@@ -57,7 +57,7 @@ const Login = (props: PropsType) => {
                                         type={'submit'}
                                         onClick={handleSubmit}
                                 >
-                                    Войти
+                                    Вход
                                 </Button>
                                 {(props.errorMessage !== null) ? (<p className='error'>{props.errorMessage}</p>) : null}
                             </form>

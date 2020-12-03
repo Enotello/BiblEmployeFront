@@ -9,7 +9,6 @@ import {returnBook} from "../../store/actions/return";
 
 const {Search} = Input;
 
-
 const columns = [
     {
         title: 'Номер книги',
@@ -117,6 +116,14 @@ const ListBook = () => {
 
     const onSearch = (searchValue: string) => {
         setFilter(searchValue)
+
+        setTimeout(() => {
+            const noDataSearchResult = document.querySelector(".ant-empty-description");
+
+            if (noDataSearchResult) {
+                noDataSearchResult.textContent = "Книг по заданным критериям не было найдено";
+            }
+        }, 1)
     }
 
     return (
@@ -130,20 +137,20 @@ const ListBook = () => {
                 </div>
                 <Table columns={columns} dataSource={dataBooks.filter((item: any) => item.title.includes(filter))}/>
             </div>
-            <div style={{textAlign: 'center', paddingBottom: '2%'}}>
-                <Space size={"middle"}>
-                    {/*
+            {/*
+                <div style={{textAlign: 'center', paddingBottom: '2%'}}>
+                    <Space size={"middle"}>
                     <Button type="primary">
                         <NavLink to={'/register'} exact={true}>
                             Регистрация
                         </NavLink>
                     </Button>
-                    */}
                     <Button className={"scanBtn"} type="primary" onClick={scanCode}>
                         Сканировать
                     </Button>
-                </Space>
-            </div>
+                    </Space>
+                </div>
+            */}
         </>
     )
 }

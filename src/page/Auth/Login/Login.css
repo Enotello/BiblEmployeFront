@@ -29,6 +29,15 @@
 .Auth Button {
     width: 100%;
     justify-content: center;
+    background-color: #4b6eb9;
+    border-radius: 0.1rem;
+    font-weight: 500;
+}
+
+.Auth Button:hover {
+    background-color: #fff;
+    color: #4b6eb9;
+    border: 1px solid #4b6eb9;
 }
 
 .error {

@@ -1,4 +1,6 @@
-
+body {
+    background-color: #f0f2f5 !important;
+}
 
 .Layout {
     height: 100vh;
@@ -23,6 +25,10 @@
     background-color: #4b6eb9 !important;
     padding: 0 5.5rem;
 
+}
+
+.ant-layout-header {
+    padding: 0 10% !important;
 }
 
 /*-----------------------*/
@@ -74,5 +80,11 @@ li a {
 .ant-btn-primary {
     background: #4b6eb9 !important;
     border-color: #4b6eb9 !important;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #fff !important;
 }
 

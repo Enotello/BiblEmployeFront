@@ -43,7 +43,7 @@ const App = () => {
             : null
           }
         </Header>
-        <Content style={{padding: '50px', paddingBottom: '10px'}}>
+        <Content style={{padding: '50px 10% 10px 10%'}}>
           <div className="site-layout-content">
             <Switch>
               {(authState.token)
@@ -62,6 +62,27 @@ const App = () => {
           </div>
 
         </Content>
+        {/*
+        <Footer className={"footer"}>
+          <section className={"footer-content"}>
+            <div className={"footer-logo"}>
+              <img src="/public/footer-logo.jpg" alt="Библиотека Московского Политеха"/>
+            </div>
+            {(authState.token)
+                ? <>
+                  <nav className='links'>
+                    <ul>
+                      <li className={"link-li"}><NavLink to={'#'} style={{color: 'white'}} className='link'>Добавить книгу</NavLink></li>
+                      <li className={"link-li"}><NavLink to={'#'} style={{color: 'white'}} className='link'>Сканировать</NavLink></li>
+                      <li className={"link-li"}><NavLink to={'#'} style={{color: 'white'}} className='link'>Добавить работника</NavLink></li>
+                    </ul>
+                  </nav>
+                </>
+                : null
+            }
+          </section>
+        </Footer>
+        */}
       </Layout>
     </BrowserRouter>)
 
