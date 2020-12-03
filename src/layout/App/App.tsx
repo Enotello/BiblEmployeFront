@@ -10,6 +10,7 @@ import Login from "../../page/Auth/Login/Login";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store/reducers";
 import {logout} from "../../store/actions/auth";
+import scanCode from "../../page/ListBook/index"
 
 const {Header, Content, Footer} = Layout;
 
@@ -30,9 +31,9 @@ const App = () => {
             ? <>
               <nav className='links'>
                 <ul>
-                  <li><NavLink to={'#'} style={{color: 'white'}} className='link'>Ссылка 1</NavLink></li>
-                  <li><NavLink to={'#'} style={{color: 'white'}} className='link'>Ссылка 2</NavLink></li>
-                  <li><NavLink to={'#'} style={{color: 'white'}} className='link'>Ссылка 3</NavLink></li>
+                  <li className={"link-li"}><NavLink to={'#'} style={{color: 'white'}} className='link'>Добавить книгу</NavLink></li>
+                  <li className={"link-li"}><NavLink to={'#'} style={{color: 'white'}} className='link'>Сканировать</NavLink></li>
+                  <li className={"link-li"}><NavLink to={'#'} style={{color: 'white'}} className='link'>Добавить работника</NavLink></li>
                 </ul>
               </nav>
               <div className='exit'>

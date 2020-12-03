@@ -1,3 +1,5 @@
+
+
 .Layout {
     height: 100vh;
     display: flex;
@@ -18,7 +20,7 @@
     width: 100%;
     min-height: 50px;
     height: 3.5rem;
-    background-color: #1e1e1e;
+    background-color: #4b6eb9 !important;
     padding: 0 5.5rem;
 
 }
@@ -36,6 +38,16 @@
     text-transform: uppercase;
     margin: auto;
 }
+
+.link-li {
+    transition: 0.5s ease;
+}
+
+.link-li:hover {
+    transition: 0.5s ease;
+    transform: scale(1.05);
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -53,5 +65,14 @@ li a {
 
 .exit Button span{
     color: white;
+    font-weight: 600;
+    background-color: #E63246;
+    padding: 5px 20px;
+    border-radius: 0.2rem;
+}
+
+.ant-btn-primary {
+    background: #4b6eb9 !important;
+    border-color: #4b6eb9 !important;
 }
 

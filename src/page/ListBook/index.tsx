@@ -32,7 +32,7 @@ const columns = [
         dataIndex: 'part_name',
     },
     {
-        title: 'Action',
+        title: 'Действие',
         key: 'action',
         render: (text: string, record: any) => {
 
@@ -124,21 +124,22 @@ const ListBook = () => {
             <div>
                 <div className="input-search-wrapper">
                     <Search
-                        placeholder="input search text"
+                        placeholder="Введите номер книги / название книги / автора / год выпуска / жанр"
                         onChange={(event) => onSearch(event.target.value)}
                     />
                 </div>
                 <Table columns={columns} dataSource={dataBooks.filter((item: any) => item.title.includes(filter))}/>
             </div>
-            <div style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center', paddingBottom: '2%'}}>
                 <Space size={"middle"}>
+                    {/*
                     <Button type="primary">
                         <NavLink to={'/register'} exact={true}>
                             Регистрация
                         </NavLink>
                     </Button>
-
-                    <Button type="primary" onClick={scanCode}>
+                    */}
+                    <Button className={"scanBtn"} type="primary" onClick={scanCode}>
                         Сканировать
                     </Button>
                 </Space>

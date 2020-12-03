@@ -1,4 +1,10 @@
-
 .input-search-wrapper{
     margin-bottom: 1rem;
+    width: 30%;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.scanBtn {
+    font-weight: 600;
 }
